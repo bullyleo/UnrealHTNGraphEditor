@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "HTNGraph",
+	"Description": "Graphical HTN domain construction tool",
+	"Category": "AI",
+	"CreatedBy": "Dv7Pavilion",
+	"CreatedByURL": "https://twitter.com/Dv7Pavilion",
+	"DocsURL": "https://github.com/bullyleo/UnrealHTNGraphEditor",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/bullyleo/UnrealHTNGraphEditor",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "HTNGraphRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "HTNGraphEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PreDefault"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "HTNPlanner",
+			"Enabled": true
+		}
+	]
+}
