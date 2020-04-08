@@ -6,6 +6,16 @@ Editor for building HTN domains on Unreal Engine 4 (UE4).
 
 - **HTN Planner**
 
+## Supported features
+
+- Editor for creating HTN Domain
+
+## Unsupported features
+
+- Debug
+  - Blakepoint
+  - Highlighting running nodes
+
 ## How to use
 
 - Select ** HTNGraphEditor-> HTN Graph Editor ** from Add New button of Content Browser
@@ -61,6 +71,16 @@ Unreal Engine 4（UE4）でHTNドメインを構築するためのエディタ�
 ## 必須プラグイン
 
 - **HTN Planner**
+
+## サポートしている機能
+
+- HTN Domain作成のためのエディタ
+
+## サポートしていない機能
+
+- デバッグ機能
+  - ブレークポイントの配置
+  - 実行中のノードのハイライト
 
 ## 使い方
 
