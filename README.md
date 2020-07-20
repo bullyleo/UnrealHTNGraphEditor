@@ -1,3 +1,7 @@
+# Infomation(お知らせ)
+
+2020-07-20 : Update to 4.25
+
 # HTN Graph Plugin(EN)
 
 Editor for building HTN domains on Unreal Engine 4 (UE4).
