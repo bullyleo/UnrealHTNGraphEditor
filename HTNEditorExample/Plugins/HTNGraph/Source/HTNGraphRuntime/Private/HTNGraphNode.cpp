@@ -9,6 +9,7 @@ UHTNGraphNode::UHTNGraphNode(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	ExecutionIndex = 0;
+	NodeName = "GraphNode";
 }
 
 void UHTNGraphNode::InitializeNode(UHTNGraphNode_Composite* InParentNode, uint16 InExecutionIndex, uint8 InTreeDepth)
@@ -21,10 +22,4 @@ void UHTNGraphNode::InitializeNode(UHTNGraphNode_Composite* InParentNode, uint16
 void UHTNGraphNode::InitializeFromAsset(UHTNGraph& Asset)
 {
 	TreeAsset = &Asset;
-}
-
-#include "BehaviorTree/BehaviorTreeTypes.h"
-FString UHTNGraphNode::GetNodeName() const
-{
-	return NodeName.Len() ? NodeName : UBehaviorTreeTypes::GetShortTypeName(this);
 }

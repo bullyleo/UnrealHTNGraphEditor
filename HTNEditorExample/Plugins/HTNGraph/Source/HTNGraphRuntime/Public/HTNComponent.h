@@ -16,15 +16,19 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHTNOnAllTaskFinishedSignature);
 
+
 USTRUCT(BlueprintType)
 struct FWorldStateElement
 {
 	GENERATED_USTRUCT_BODY()
 public:
-	UPROPERTY(EditAnywhere, Category =" HTN")
+	UPROPERTY(EditAnywhere, Category = " HTN")
 		FUserDefinitionWorldState Key;
 
 	// WorldStateのValueはすべてint32型で扱う。よってTRUEの場合は「１」をFALSEの場合は「０」を入力することになる.
+
+	// Numeric Type : 1, 2, 3, 4, 5, ..., 100, 101, ...
+	// Bool Type : TRUE=1, FALSE=0
 	UPROPERTY(EditAnywhere, Category =" HTN")
 		int32 Value;
 };
@@ -48,11 +52,13 @@ class HTNGRAPHRUNTIME_API UHTNComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "HTN")
+		TArray<FWorldStateElement> DefaultWorldState;
+
 private:
 	UPROPERTY(EditAnywhere, Category = "HTN")
 		UEnum* WorldStateEnumAsset;
-	UPROPERTY(EditAnywhere, Category = "HTN")
-		TArray<FWorldStateElement> DefaultWorldState;
 
 
 	UPROPERTY(EditAnywhere, Category = "HTN")

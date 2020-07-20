@@ -13,6 +13,7 @@ class IPropertyHandle;
 //--------------------------------------------------------------
 // World StateやOperationに用いるEnumアセットの詳細パネルのレイアウトを定義する
 //--------------------------------------------------------------
+
 class FHTNPrimitiveTaskCustomDetails : public IDetailCustomization
 {
 public:

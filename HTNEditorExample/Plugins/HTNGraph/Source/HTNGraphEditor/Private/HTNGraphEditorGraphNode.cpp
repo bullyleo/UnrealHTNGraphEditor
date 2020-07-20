@@ -52,12 +52,7 @@ void UHTNGraphEditorGraphNode::InitializeInstance()
 
 FText UHTNGraphEditorGraphNode::GetTooltipText() const
 {
-	FText TooltipDesc;
-
-	if (TooltipDesc.IsEmpty())
-	{
-		TooltipDesc = Super::GetTooltipText();
-	}
+	FText TooltipDesc = FText();
 
 	return TooltipDesc;
 }

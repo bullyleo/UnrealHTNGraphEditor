@@ -10,6 +10,7 @@
 //--------------------------------------------------------------
 // グラフに表示される「Primitiveノード」を表すクラス
 //--------------------------------------------------------------
+
 UCLASS()
 class UHTNGraphEditorGraphNode_PrimitiveTask : public UHTNGraphEditorGraphNode
 {
@@ -18,5 +19,6 @@ class UHTNGraphEditorGraphNode_PrimitiveTask : public UHTNGraphEditorGraphNode
 public:
 	UHTNGraphEditorGraphNode_PrimitiveTask(const FObjectInitializer& ObjectInitializer);
 
+	virtual FText GetTooltipText() const override;
 	virtual void AllocateDefaultPins() override;
 };

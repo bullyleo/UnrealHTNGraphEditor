@@ -16,12 +16,12 @@
 
 #include "EdGraph/EdGraph.h"
 #include "Layout/SlateRect.h"
-#include "EdGraphNode_Comment.h"
+//#include "EdGraphNode_Comment.h"
 #include "Modules/ModuleManager.h"
-#include "Framework/MultiBox/MultiBoxBuilder.h"
-#include "ToolMenus.h"
-#include "GraphEditorActions.h"
-#include "Toolkits/ToolkitManager.h"
+//#include "Framework/MultiBox/MultiBoxBuilder.h"
+//#include "ToolMenus.h"
+//#include "GraphEditorActions.h"
+//#include "Toolkits/ToolkitManager.h"
 
 #define LOCTEXT_NAMESPACE "HTNGraphEditor"
 

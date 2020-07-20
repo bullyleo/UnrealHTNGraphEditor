@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "UObject/ObjectMacros.h"
 #include "HTNGraphEditorGraphNode.h"
-#include "Engine/UserDefinedEnum.h"
-#include "Engine/DataTable.h"
 #include "HTNGraphEditorGraphNode_Root.generated.h"
 
 /** Root node of this behavior tree, holds Blackboard data */

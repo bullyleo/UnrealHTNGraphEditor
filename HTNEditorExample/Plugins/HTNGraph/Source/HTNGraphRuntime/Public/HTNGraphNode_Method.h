@@ -28,15 +28,16 @@ struct FHTNMethodCondition
     UPROPERTY(/*EditAnywhere, Category = "AI|HTN"*/)
         bool bCanEditValue;
 
-    // bCanEditValueがTrueの場合のみ編集可能.
+    // Editable only if bCanEditValue is True.
     UPROPERTY(EditAnywhere, meta = (EditCondition = "bCanEditValue"), Category = "AI|HTN" )
         int32 Value;
 };
 
 
 //--------------------------------------------------------------
-// Methodノード
-// このノードは「Compositeノード」「Primitive Taskノード」のみを子にすることが出来る 
+// いくつかのノードをまとめる.
+// MethodConditionsの結果によって子ノードを展開するか決定する.
+// 「Compositeノード」「Primitive Taskノード」のみを子にすることが出来る 
 //--------------------------------------------------------------
 UCLASS()
 class HTNGRAPHRUNTIME_API UHTNGraphNode_Method : public UHTNGraphNode_Composite

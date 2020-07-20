@@ -74,14 +74,15 @@ public:
     /** initialize any asset related data */
     virtual void InitializeFromAsset(class UHTNGraph& Asset);
 
-    // PrimitiveTaskBuilderとか何やらを作る関数
+    // このノードの振る舞いに必要なデータを準備する
+    // 例：Primitive TaskのOperatorのセットやEffectの設定
     virtual void ConstructTaskBuilder(struct FHTNBuilder_Domain& DomainBuilder) {};
 
     /** @return tree asset */
-    UHTNGraph* GetTreeAsset() const;
+    FORCEINLINE UHTNGraph* GetTreeAsset() const { return TreeAsset; }
 
     /** @return execution index */
-    uint16 GetExecutionIndex() const;
+    FORCEINLINE uint16 GetExecutionIndex() const { return ExecutionIndex; }
 
     /** @return string containing description of this node with all setup values */
     virtual FString GetStaticDescription() const;
@@ -91,22 +92,9 @@ public:
     virtual FName GetNodeIconName() const { return NAME_None; }
 #endif
 
-    FString GetNodeName() const;
-
-
+	FString GetNodeName() const { return NodeName.Len() ? NodeName : GetClass()->GetName(); }
 };
 
-
-
-inline UHTNGraph* UHTNGraphNode::GetTreeAsset() const
-{
-    return TreeAsset;
-}
-
-FORCEINLINE uint16 UHTNGraphNode::GetExecutionIndex() const
-{
-    return ExecutionIndex;
-}
 
 inline FString UHTNGraphNode::GetStaticDescription() const
 {

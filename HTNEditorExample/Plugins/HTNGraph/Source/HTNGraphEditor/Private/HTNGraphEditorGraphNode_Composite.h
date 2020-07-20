@@ -19,7 +19,6 @@ class UHTNGraphEditorGraphNode_Composite : public UHTNGraphEditorGraphNode
 public:
 	UHTNGraphEditorGraphNode_Composite(const FObjectInitializer& ObjectInitializer);
 
-	//virtual FText GetNodeTitle(ENodeTitleType::Type TitleType) const override;
 	virtual FText GetTooltipText() const override;
 	virtual bool RefreshNodeClass() override{ return false; }
 };

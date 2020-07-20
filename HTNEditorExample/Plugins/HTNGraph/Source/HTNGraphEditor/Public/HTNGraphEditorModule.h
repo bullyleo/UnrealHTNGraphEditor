@@ -26,7 +26,9 @@ public:
 	virtual void ShutdownModule() override;
 
 	/** Creates an instance of HTN Graph editor.  Only virtual so that it can be called across the DLL boundary. */
-	virtual TSharedRef<FWorkflowCentricApplication> CreateHTNGraphEditor(const EToolkitMode::Type Mode, const TSharedPtr< class IToolkitHost >& InitToolkitHost, class UObject* Object);
+	virtual TSharedRef<FWorkflowCentricApplication> CreateHTNGraphEditor(const EToolkitMode::Type Mode, 
+																		 const TSharedPtr< class IToolkitHost >& InitToolkitHost, 
+																		 class UObject* Object);
 
 	/** Gets the extensibility managers for outside entities to extend static mesh editor's menus and toolbars */
 	virtual TSharedPtr<FExtensibilityManager> GetMenuExtensibilityManager() override { return MenuExtensibilityManager; }

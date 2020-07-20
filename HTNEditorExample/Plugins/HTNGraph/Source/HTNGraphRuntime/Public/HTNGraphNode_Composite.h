@@ -43,7 +43,7 @@ public:
 
     /** fill in data about tree structure */
     void InitializeComposite(uint16 InLastExecutionIndex);
-
+    
     virtual void ConstructTaskBuilder(struct FHTNBuilder_Domain& DomainBuilder) override;
     virtual void ConstructMethodBuilder(struct FHTNBuilder_Domain& DomainBuilder, struct FHTNBuilder_CompositeTask& CompositeTaskBuilder) {};
 

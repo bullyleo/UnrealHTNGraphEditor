@@ -7,6 +7,7 @@
 #include "DetailCustomizations/HTNPrimitiveTaskCustomDetails.h"
 #include "DetailCustomizations/HTNUserDefinitionWorldStateDetails.h"
 #include "DetailCustomizations/HTNOperatorClassDataDetails.h"
+#include "HTNGraphNode.h"
 
 #include "SGraphNode_HTNGraph.h"
 #include "EdGraphUtilities.h"
@@ -42,6 +43,7 @@ void FHTNGraphEditorModule::StartupModule()
 	FEdGraphUtilities::RegisterVisualNodeFactory(GraphPanelNodeFactory_HTNGraphEditor);
 
 	IAssetTools& AssetToolsModule = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
+	// アセットを右クリックしたときに表示されるコンテキストメニューの拡張内容を登録
 	TSharedPtr<FAssetTypeActions_HTNGraphEditor> HTNGraphEditorAssetTypeAction = MakeShareable(new FAssetTypeActions_HTNGraphEditor);
 	ItemDataAssetTypeActions.Add(HTNGraphEditorAssetTypeAction);
 	AssetToolsModule.RegisterAssetTypeActions(HTNGraphEditorAssetTypeAction.ToSharedRef());
@@ -49,6 +51,7 @@ void FHTNGraphEditorModule::StartupModule()
 	// HTNGraphNode_Taskをグラフで選択したときに表示される詳細パネルを登録.
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 	PropertyModule.RegisterCustomClassLayout("HTNGraphNode_PrimitiveTask", FOnGetDetailCustomizationInstance::CreateStatic(&FHTNPrimitiveTaskCustomDetails::MakeInstance));
+	// UEnumの値を文字列として表示する
 	PropertyModule.RegisterCustomPropertyTypeLayout("UserDefinitionWorldState", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FHTNUserDefinitionWorldStateDetails::MakeInstance));
 	PropertyModule.RegisterCustomPropertyTypeLayout("HTNOperatorClassData", FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FHTNOperatorClassDataDetails::MakeInstance));
 }

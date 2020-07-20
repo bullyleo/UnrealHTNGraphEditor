@@ -3,7 +3,6 @@
 #include "HTNGraphEditorGraphNode_Root.h"
 #include "UObject/UObjectIterator.h"
 #include "HTNGraphEditorTypes.h"
-#include "HTNGraphEditorGraph.h"
 
 
 UHTNGraphEditorGraphNode_Root::UHTNGraphEditorGraphNode_Root(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
@@ -19,7 +18,6 @@ void UHTNGraphEditorGraphNode_Root::PostPlacedNewNode()
 void UHTNGraphEditorGraphNode_Root::AllocateDefaultPins()
 {
 	CreatePin(EGPD_Output, UHTNGraphEditorTypes::PinCategory_SingleComposite, TEXT("In"));
-	//CreatePin(EGPD_Output, UHTNGraphEditorTypes::PinCategory_MultipleNodes, TEXT("In"));
 }
 
 FText UHTNGraphEditorGraphNode_Root::GetNodeTitle(ENodeTitleType::Type TitleType) const

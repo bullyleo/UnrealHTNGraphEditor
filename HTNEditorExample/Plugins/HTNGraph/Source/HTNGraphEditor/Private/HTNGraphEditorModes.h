@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Framework/Docking/TabManager.h"
 #include "HTNGraphEditor.h"
 #include "WorkflowOrientedApp/WorkflowTabManager.h"
 #include "WorkflowOrientedApp/ApplicationMode.h"

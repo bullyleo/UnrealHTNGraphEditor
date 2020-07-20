@@ -1,10 +1,9 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "HTNGraphEditorTabFactories.h"
-#include "Engine/Blueprint.h"
-#include "EditorStyleSet.h"
 #include "HTNGraphEditorTabs.h"
 #include "HTNGraphRuntime/Public/HTNGraph.h"
+#include "EditorStyleSet.h"
 #include "Widgets/Docking/SDockTab.h"
 
 #define LOCTEXT_NAMESPACE "HTNGraphEditorFactories"

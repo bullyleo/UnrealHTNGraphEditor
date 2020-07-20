@@ -12,6 +12,8 @@ UHTNGraphEditorGraphNode_Method::UHTNGraphEditorGraphNode_Method(const FObjectIn
 
 FText UHTNGraphEditorGraphNode_Method::GetTooltipText() const
 {
-	return FText();
+	//return FText::Format(FText::FromString("Any tooltip"));
+
+	return Super::GetTooltipText();
 }
 

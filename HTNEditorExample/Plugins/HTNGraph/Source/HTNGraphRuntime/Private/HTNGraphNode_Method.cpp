@@ -14,26 +14,12 @@ UHTNGraphNode_Method::UHTNGraphNode_Method(const FObjectInitializer& ObjectIniti
 
 void UHTNGraphNode_Method::ConstructMethodBuilder(FHTNBuilder_Domain& DomainBuilder, FHTNBuilder_CompositeTask& CompositeTaskBuilder)
 {
-    //FHTNBuilder_Method* MethodsBuilder = nullptr;
-    //if (MethodConditions.Num() > 0)
-    //{
-    //    TArray<FHTNCondition> Methods;
-    //    for (const auto& Condition : MethodConditions)
-    //    {
-    //        Methods.Add(FHTNCondition(Condition.MethodWorldState.WorldStateKeyValue, Condition.Check).SetRHSAsValue(Condition.Value));
-    //    }
-    //    MethodsBuilder = &CompositeTaskBuilder.AddMethod(Methods);
-    //}
-    //else
-    //{
-    //    MethodsBuilder = &CompositeTaskBuilder.AddMethod();
-    //}
-
     TArray<FHTNCondition> Methods;
     for (const auto& Condition : MethodConditions)
     {
         Methods.Add(FHTNCondition(Condition.MethodWorldState.WorldStateKeyValue, Condition.Check).SetRHSAsValue(Condition.Value));
     }
+
     FHTNBuilder_Method& MethodsBuilder = CompositeTaskBuilder.AddMethod(Methods);
 
     for (const auto& Child : Children)
@@ -58,7 +44,6 @@ void UHTNGraphNode_Method::PostEditChangeProperty(FPropertyChangedEvent& Propert
     //Get the name of the property that was changed  
     FName PropertyName = (PropertyChangedEvent.Property != nullptr) ? PropertyChangedEvent.Property->GetFName() : NAME_None;
 
-    // FHTNMethodConditionÇÃÅuCheckïœêîÅvÇÃÇ±Ç∆
     if ((PropertyName == "Check") || (PropertyName == "MethodConditions")) 
     {
         for (auto& Elem : MethodConditions)

@@ -31,6 +31,7 @@ struct FHTNEffectParam
 // Primitive Taskノード
 // このノードは末端なので子を持つことは出来ない
 //--------------------------------------------------------------
+
 UCLASS()
 class HTNGRAPHRUNTIME_API UHTNGraphNode_PrimitiveTask : public UHTNGraphNode
 {

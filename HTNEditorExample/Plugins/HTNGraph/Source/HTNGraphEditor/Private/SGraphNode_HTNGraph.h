@@ -5,13 +5,9 @@
 #include "CoreMinimal.h"
 #include "HTNGraphEditorTypes.h"
 #include "Input/Reply.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Layout/Visibility.h"
 #include "Styling/SlateColor.h"
-#include "SNodePanel.h"
-#include "SGraphNode.h"
 #include "SGraphNodeAI.h"
-#include "SGraphPin.h"
 
 class SHorizontalBox;
 class SToolTip;

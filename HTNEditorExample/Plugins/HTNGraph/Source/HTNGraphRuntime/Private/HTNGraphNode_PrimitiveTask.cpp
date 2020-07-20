@@ -15,7 +15,6 @@ void UHTNGraphNode_PrimitiveTask::ConstructTaskBuilder(FHTNBuilder_Domain& Domai
 {
 	FHTNBuilder_PrimitiveTask& PrimitiveTaskBuilder = DomainBuilder.AddPrimitiveTask(*NodeName);
 	{
-		// TODO: èCê≥
 		if(TaskOperatorValue != INDEX_NONE)
 			PrimitiveTaskBuilder.SetOperator(TaskOperatorValue, OperationParamValue);
 

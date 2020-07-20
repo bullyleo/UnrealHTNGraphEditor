@@ -8,6 +8,8 @@
 
 class IPropertyHandle;
 
+// UEnumアセットで定義したWorldStateの内容を詳細パネル上で文字列で表示出来るようにする.
+
 class FHTNUserDefinitionWorldStateDetails : public IPropertyTypeCustomization
 {
 public:
@@ -22,7 +24,7 @@ private:
 	void OnKeyComboChange(int32 Index);
 	TSharedRef<SWidget> OnGetKeyContent() const;
 	FText GetCurrentKeyDesc() const;
-	bool IsEditingEnabled() const;
+	bool IsEditingEnabled() const { return true; }
 
 	TSharedPtr<IPropertyHandle> MyWorldStateKeyValueProperty;
 

@@ -2,20 +2,10 @@
 
 #include "HTNUserDefinitionWorldStateDetails.h"
 #include "HTNGraphNode_PrimitiveTask.h"
-#include "HTNGraph.h"
 #include "HTNComponent.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Widgets/Input/SComboButton.h"
 #include "Widgets/SWidget.h"
-#include "Engine/GameViewportClient.h"
-#include "Editor/EditorPerProjectUserSettings.h"
-#include "Textures/SlateIcon.h"
-#include "Framework/Commands/UIAction.h"
-#include "Framework/MultiBox/MultiBoxBuilder.h"
-#include "DetailWidgetRow.h"
-#include "DetailLayoutBuilder.h"
-#include "IPropertyUtilities.h"
 #include "PropertyEditing.h"
 
 #define LOCTEXT_NAMESPACE "HTNUserDefinitionWorldStateDetails"
@@ -25,7 +15,6 @@ TSharedRef<IPropertyTypeCustomization> FHTNUserDefinitionWorldStateDetails::Make
 	return MakeShareable(new FHTNUserDefinitionWorldStateDetails);
 }
 
-//#include "GameFramework/Character.h"
 void FHTNUserDefinitionWorldStateDetails::CustomizeHeader(TSharedRef<class IPropertyHandle> StructPropertyHandle, class FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& StructCustomizationUtils)
 {
 	MyWorldStateKeyValueProperty = StructPropertyHandle->GetChildHandle(TEXT("WorldStateKeyValue"));
@@ -36,15 +25,17 @@ void FHTNUserDefinitionWorldStateDetails::CustomizeHeader(TSharedRef<class IProp
 	StructPropertyHandle->GetOuterObjects(MyObjects);
 	for (int32 i = 0; i < MyObjects.Num(); i++)
 	{
-		// 詳細パネルのレイアウトは UHTNGraphNodeクラス が所持するEnumアセットに対して適用される
+		// このクラスで定義される拡張内容はUHTNGraphNodeクラスとUHTNComponentクラスが持つEnumアセットに対して適用される
+
+		// HTNGraphNodeに設定されたEnumAssetを取得
 		UHTNGraphNode* NodeOb = Cast<UHTNGraphNode>(MyObjects[i]);
 		if (NodeOb)
 		{
-			//CachedWorldStateEnumAsset = NodeOb->WorldStateEnumAsset;
 			CachedWorldStateEnumAsset = NodeOb->GetTreeAsset()->WorldStateEnumAsset;
 			break;
 		}
 
+		// HTNComponentに設定されたEnumAssetを取得
 		UHTNComponent* Component = Cast<UHTNComponent>(MyObjects[i]);
 		if (Component)
 		{
@@ -71,8 +62,6 @@ void FHTNUserDefinitionWorldStateDetails::CustomizeChildren(TSharedRef<class IPr
 	StructBuilder.AddCustomRow(LOCTEXT("TypeRow", "TypeRow"))
 		.NameContent()
 		[
-			//SNew(STextBlock)
-			//.Text(LOCTEXT("Title", "World State Key"))
 			MyWorldStateKeyValueProperty->CreatePropertyNameWidget()
 		]
 		.ValueContent()
@@ -113,19 +102,15 @@ FText FHTNUserDefinitionWorldStateDetails::GetCurrentKeyDesc() const
 		Result = MyWorldStateKeyValueProperty->GetValue(CurrentIntValue);
 	}
 
-	return (Result == FPropertyAccess::Success && WorldStateKeyValues.IsValidIndex(CurrentIntValue))
-		? FText::FromString(WorldStateKeyValues[CurrentIntValue])
-		: FText::GetEmpty();
+	if (Result == FPropertyAccess::Success && WorldStateKeyValues.IsValidIndex(CurrentIntValue))
+		return FText::FromString(WorldStateKeyValues[CurrentIntValue]);
+	else
+		return FText::GetEmpty();
 }
 
 void FHTNUserDefinitionWorldStateDetails::OnKeyComboChange(int32 Index)
 {
 	MyWorldStateKeyValueProperty->SetValue(Index);
-}
-
-bool FHTNUserDefinitionWorldStateDetails::IsEditingEnabled() const
-{
-	return true;
 }
 
 #undef LOCTEXT_NAMESPACE

@@ -31,10 +31,10 @@ public:
 		TArray<FEditedDocumentInfo> LastEditedDocuments;
 #endif
 
-	UPROPERTY(/*EditAnywhere, Category = "HTN"*/)
+	UPROPERTY()
 		UEnum* WorldStateEnumAsset;
-	UPROPERTY(/*EditAnywhere, Category = "HTN"*/)
+	UPROPERTY()
 		UEnum* OperatorEnumAsset;
-	UPROPERTY(/*EditAnywhere, Category = "HTN"*/)
+	UPROPERTY()
 		UEnum* OperatorParamEnumAsset;
 };

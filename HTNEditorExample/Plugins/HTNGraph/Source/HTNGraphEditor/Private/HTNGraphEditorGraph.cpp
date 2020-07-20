@@ -6,7 +6,8 @@
 #include "HTNGraphEditorGraphNode_Composite.h"
 #include "HTNGraphEditorGraphNode_Root.h"
 #include "HTNGraphEditorGraphNode_PrimitiveTask.h"
-#include "HTNGraphEditorGraphNode_Method.h"
+#include "HTNGraphNode_Method.h"
+
 #include "EdGraphSchema_HTNGraph.h"
 #include "SGraphPanel.h"
 #include "EdGraph/EdGraphPin.h"
@@ -240,8 +241,16 @@ namespace HTNGraphHelpers
 				ChildInfo.ChildComposite = CompositeInstance;
 				ChildInfo.ChildTask = TaskInstance;
 
-				UHTNGraphNode* ChildNode =	MethodInstance ? (UHTNGraphNode*)MethodInstance :
-											CompositeInstance ? (UHTNGraphNode*)CompositeInstance :								(UHTNGraphNode*)TaskInstance;
+				UHTNGraphNode* ChildNode = nullptr;
+				if (MethodInstance)
+					ChildNode = (UHTNGraphNode*)MethodInstance;
+				else if (CompositeInstance)
+					ChildNode = (UHTNGraphNode*)CompositeInstance;
+				else
+					ChildNode = (UHTNGraphNode*)TaskInstance;
+
+				//UHTNGraphNode* ChildNode =	MethodInstance ? (UHTNGraphNode*)MethodInstance :
+				//							CompositeInstance ? (UHTNGraphNode*)CompositeInstance :										(UHTNGraphNode*)TaskInstance;
 
 
 				// assign execution index to child node
